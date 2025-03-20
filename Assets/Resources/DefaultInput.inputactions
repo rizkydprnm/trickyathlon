@@ -516,68 +516,77 @@
                     "isPartOfComposite": false
                 }
             ]
-        }
-    ],
-    "controlSchemes": [
+        },
         {
-            "name": "Keyboard&Mouse",
-            "bindingGroup": "Keyboard&Mouse",
-            "devices": [
+            "name": "Player",
+            "id": "442e240b-2cca-4098-81b4-4c3215f55492",
+            "actions": [
                 {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "d5b736b8-a16f-4843-89eb-7c60c0f1cc30",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
-                    "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
+                    "name": "Speed",
+                    "type": "Value",
+                    "id": "af7ca16d-961e-434e-8e48-bae00fba5629",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
-            ]
-        },
-        {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
+            ],
+            "bindings": [
                 {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Touch",
-            "bindingGroup": "Touch",
-            "devices": [
+                    "name": "",
+                    "id": "f2046030-3131-4311-bc8a-9779d3165e05",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
-                    "devicePath": "<Touchscreen>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Joystick",
-            "bindingGroup": "Joystick",
-            "devices": [
+                    "name": "1D Axis",
+                    "id": "5303ca21-981a-4c03-89fd-52ea0a97c5c9",
+                    "path": "1DAxis(whichSideWins=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Speed",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
                 {
-                    "devicePath": "<Joystick>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "XR",
-            "bindingGroup": "XR",
-            "devices": [
+                    "name": "negative",
+                    "id": "f62b64fb-ad7b-4adb-bb37-810377760e50",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Speed",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
                 {
-                    "devicePath": "<XRController>",
-                    "isOptional": false,
-                    "isOR": false
+                    "name": "positive",
+                    "id": "35226936-b7c5-429a-aa05-6afac1a78187",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Speed",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
-    ]
+    ],
+    "controlSchemes": []
 }
