@@ -15,4 +15,4 @@ MonoBehaviour:
   ChunkPrefab: {fileID: 5750083900493752057, guid: 3c61469f656fd974693f24ecdce336ba, type: 3}
   PreviousChunksList: []
   ListAsWhiteList: 0
-  DeltaYRange: 2
+  DeltaYRange: 5
