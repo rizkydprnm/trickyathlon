@@ -22,22 +22,19 @@ public struct GeneratorData
 /// </summary>
 public class Generator : MonoBehaviour
 {
-    enum ExecutionMode
-    {
-        Sequence,
-        Selector,
-    }
-
     [Tooltip("The starting location for the generator.")]
     [SerializeField] Transform startLocation;
 
-    [Tooltip("The execution mode of the generator.")]
-    [SerializeField] ExecutionMode mode = ExecutionMode.Sequence;
-
     protected static GeneratorData data;
+    protected static bool isDataInitialized = false;
+
     public static void Initialize(int seed)
     {
-        data = new();
+        if (!isDataInitialized)
+        {
+            data = new();
+            isDataInitialized = true;
+        }
         data.Randomizer = new(seed);
         data.Seed = seed;
     }
