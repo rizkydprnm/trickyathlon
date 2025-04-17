@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -37,7 +36,7 @@ public class Selector : Node
             int attempts = 0;
             while (attempts < maxRandomAttempts)
             {
-                Node selectedChild = transform.GetChild((int) Math.Floor(data.LastRandomValue * transform.childCount)).GetComponent<Node>();
+                Node selectedChild = transform.GetChild((int) Mathf.Floor(data.LastRandomValue * transform.childCount)).GetComponent<Node>();
                 
                 if (selectedChild == null)
                 {
