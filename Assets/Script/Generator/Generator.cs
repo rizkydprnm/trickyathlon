@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// GeneratorData struct holds the data needed for the generator to work.
@@ -27,6 +28,8 @@ public class Generator : MonoBehaviour
     protected static GeneratorData data;
     protected static bool isDataInitialized = false;
 
+    public static UnityEvent ChunkDestroyed = new();
+
     public static void Initialize(int seed)
     {
         if (!isDataInitialized)
@@ -41,13 +44,16 @@ public class Generator : MonoBehaviour
     void Start()
     {
         Initialize(Random.Range(-10000, 10000));
+        ChunkDestroyed.AddListener(SpawnChunk);
 
         data.NextLocation = startLocation;
-        for (int i = 0; i < 25; i++)
-        {
-            data.LastRandomValue = (float) data.Randomizer.NextDouble();
-            GetComponent<Node>().Execute(ref data);
-        }
+        for (int i = 0; i < 25; i++) SpawnChunk();
+    }
+
+    void SpawnChunk()
+    {
+        data.LastRandomValue = (float)data.Randomizer.NextDouble();
+        GetComponent<Node>().Execute(ref data);
     }
 }
 

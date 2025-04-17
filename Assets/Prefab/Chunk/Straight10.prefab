@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1080586682798185841}
   - component: {fileID: 2222905132570581443}
   - component: {fileID: 4239015850717896650}
-  m_Layer: 0
+  - component: {fileID: 2130742899565325740}
+  m_Layer: 7
   m_Name: Static Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +122,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
+  m_CompositeOperation: 1
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -162,6 +163,65 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!66 &2130742899565325740
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136437788363351001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2222905132570581443}
+    m_ColliderPaths:
+    - - X: 50000000
+        Y: 25000000
+      - X: -50000000
+        Y: 25000000
+      - X: -50000000
+        Y: -25000000
+      - X: 50000000
+        Y: -25000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 4.999971, y: -2.5}
+      - {x: 4.999971, y: 2.5}
+      - {x: -5, y: 2.499971}
+      - {x: -4.999971, y: -2.5}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 1136437788363351001}
 --- !u!1 &3387975805515406121
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7025740302532855393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Next
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -203,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7649800552187563738}
   - component: {fileID: 5759020512154106126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Straight10
   m_TagString: Untagged
   m_Icon: {fileID: 0}

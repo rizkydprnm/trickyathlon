@@ -16,6 +16,7 @@ public class Chunk : MonoBehaviour
         if (Camera.main.transform.position.x - transform.position.x > 25f)
         {
             Destroy(gameObject);
+            Generator.ChunkDestroyed?.Invoke();
         }
     }
 }
