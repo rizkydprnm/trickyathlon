@@ -36,7 +36,8 @@ public class Selector : Node
             int attempts = 0;
             while (attempts < maxRandomAttempts)
             {
-                Node selectedChild = transform.GetChild((int) Mathf.Floor(data.LastRandomValue * transform.childCount)).GetComponent<Node>();
+                float randomValue = (float) data.Randomizer.NextDouble();
+                Node selectedChild = transform.GetChild((int) Mathf.Floor(randomValue * transform.childCount)).GetComponent<Node>();
                 
                 if (selectedChild == null)
                 {

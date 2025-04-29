@@ -1,3 +1,4 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,6 @@ public struct GeneratorData
 {
     public System.Random Randomizer;
     public int Seed;
-    public float LastRandomValue;
 
     public ChunkData PreviousChunk;
     public Transform NextLocation;
@@ -24,6 +24,9 @@ public class Generator : MonoBehaviour
 {
     [Tooltip("The starting location for the generator.")]
     [SerializeField] Transform startLocation;
+
+    [Tooltip("The number of chunks to be generated the first time.")]
+    [SerializeField, Min(10)] int initialChunksAmount = 10;
 
     protected static GeneratorData data;
     protected static bool isDataInitialized = false;
@@ -47,12 +50,11 @@ public class Generator : MonoBehaviour
         ChunkDestroyed.AddListener(SpawnChunk);
 
         data.NextLocation = startLocation;
-        for (int i = 0; i < 25; i++) SpawnChunk();
+        for (int i = 0; i < initialChunksAmount; i++) SpawnChunk();
     }
 
     void SpawnChunk()
     {
-        data.LastRandomValue = (float)data.Randomizer.NextDouble();
         GetComponent<Node>().Execute(ref data);
     }
 }

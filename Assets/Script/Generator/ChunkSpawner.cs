@@ -27,7 +27,8 @@ public class ChunkSpawner : Node
             }
         }
 
-        Vector3 offset = Vector2.up * Mathf.Round((data.LastRandomValue * 2 - 1f) * chunkData.DeltaYRange);
+        float randomValue = (float)data.Randomizer.NextDouble();
+        Vector3 offset = Vector2.up * Mathf.Round((randomValue * 2 - 1f) * chunkData.DeltaYRange);
 
         GameObject chunk = Instantiate(chunkData.ChunkPrefab, data.NextLocation.position + offset, Quaternion.identity);
         chunk.transform.SetParent(null);
