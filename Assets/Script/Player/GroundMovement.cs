@@ -37,7 +37,7 @@ public class GroundMovement : MonoBehaviour
             body.linearVelocityX = Mathf.MoveTowards(
                 body.linearVelocityX,
                 0,
-                Time.fixedDeltaTime * 2 * player.data.ACCELERATION
+                Time.fixedDeltaTime * 4 * player.data.ACCELERATION
             );
         }
         else if (speedInput > 0)
@@ -61,7 +61,7 @@ public class GroundMovement : MonoBehaviour
         {
             canBrake = true;
         }
-        else if (body.linearVelocityX == 0)
+        else if (body.linearVelocityX == 0 && speedInput < 0)
         {
             canBrake = false;
         }
