@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MAX_SPEED>k__BackingField: 10
   <ACCELERATION>k__BackingField: 5
-  <JUMP_FORCE>k__BackingField: 10
+  <JUMP_FORCE>k__BackingField: 20
