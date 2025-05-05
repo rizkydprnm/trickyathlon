@@ -1,31 +1,29 @@
 using UnityEngine;
 
-public abstract class Node: MonoBehaviour
+namespace BehaviorTree
 {
-    public abstract bool Execute(ref GeneratorData data);
-}
-
-public class Sequence : Node
-{
-    [SerializeField] bool keepExecuting = false;
-    public override bool Execute(ref GeneratorData data)
+    public class Sequence : Node
     {
-        foreach (Transform child in transform)
+        [SerializeField] bool keepExecuting = false;
+        public override bool Execute(ref GeneratorData data)
         {
-            Node task = child.GetComponent<Node>();
-            if (task == null)
+            foreach (Transform child in transform)
             {
-                Debug.LogError($"Child {child.name} does not have a Node component.");
-                continue;
+                Node task = child.GetComponent<Node>();
+                if (task == null)
+                {
+                    Debug.LogError($"Child {child.name} does not have a Node component.");
+                    continue;
+                }
+
+                bool result = task.Execute(ref data);
+                if (!result && !keepExecuting)
+                {
+                    return false;
+                }
             }
 
-            bool result = task.Execute(ref data);
-            if (!result && !keepExecuting)
-            {
-                return false;
-            }
+            return true;
         }
-
-        return true;
     }
 }

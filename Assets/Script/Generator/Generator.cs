@@ -1,6 +1,6 @@
-using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Events;
+using BehaviorTree;
 
 /// <summary>
 /// GeneratorData struct holds the data needed for the generator to work.
