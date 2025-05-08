@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2a5450d981565940b40048d75d3e890
+guid: d55ded895c5c5ea48a99bfec0be3decd
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Nu Yomogi Mochi
+  - Pixel Operator 8
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

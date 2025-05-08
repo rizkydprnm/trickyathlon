@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d8e5244cc7a75c41b4a371dc54e59d0
+guid: 497a25dcdbb813d45a750cc076f6f4fa
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Nu Kinako Mochi
+  - Pixel Operator
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
