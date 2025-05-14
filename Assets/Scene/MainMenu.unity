@@ -4110,8 +4110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 61.505, y: -94.195}
-  m_SizeDelta: {x: 107.01, y: 8.01}
+  m_AnchoredPosition: {x: 93.005, y: -102.915}
+  m_SizeDelta: {x: 170.01, y: 25.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510175152
 MonoBehaviour:
@@ -4135,7 +4135,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Special thanks to
 
-    <color=#FFEA00>'
+    <color=#FFEA00>Assets by Pixel Frog
+
+    Icons
+    by Midhil M (Leo Red)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b164722c7cf819a45902188304616b43, type: 2}
   m_sharedMaterial: {fileID: 61873566339070220, guid: b164722c7cf819a45902188304616b43, type: 2}
