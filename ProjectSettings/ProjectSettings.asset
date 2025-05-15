@@ -266,8 +266,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/Code/sekalipakaibuang.keystore
-  AndroidKeyaliasName: sekalipakaibuang
+  AndroidKeystoreName: D:/Assorted/Executables/Android SDK/rizkydprnm.keystore
+  AndroidKeyaliasName: rizkydprnm
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidEnableArm64MTE: 0
   AndroidBuildApkPerCpuArchitecture: 0

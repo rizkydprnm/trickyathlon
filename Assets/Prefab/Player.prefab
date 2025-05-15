@@ -4955,8 +4955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59e17d4422ab7a40b52c6950527c5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <data>k__BackingField: {fileID: 11400000, guid: 49c43e3e57f8a1146bbd672e80d84f1c, type: 2}
-  energy: 0
+  <data>k__BackingField: {fileID: 0}
+  energy: 100
   distance: 0
 --- !u!114 &6578570689582484017
 MonoBehaviour:

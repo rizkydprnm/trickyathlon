@@ -44,7 +44,7 @@ public class GroundMovement : MonoBehaviour
         {
             body.linearVelocityX = Mathf.MoveTowards(
                 body.linearVelocityX,
-                2 * player.data.MAX_SPEED,
+                2 * player.data.MAX_SPEED + player.max_speed_modifier,
                 Time.fixedDeltaTime * 2 * player.data.ACCELERATION
             );
         }
@@ -52,12 +52,12 @@ public class GroundMovement : MonoBehaviour
         {
             body.linearVelocityX = Mathf.MoveTowards(
                 body.linearVelocityX,
-                player.data.MAX_SPEED,
+                player.data.MAX_SPEED + player.max_speed_modifier,
                 Time.fixedDeltaTime * player.data.ACCELERATION
             );
         }
 
-        if (body.linearVelocityX >= player.data.MAX_SPEED)
+        if (body.linearVelocityX >= player.data.MAX_SPEED + player.max_speed_modifier)
         {
             canBrake = true;
         }
@@ -66,7 +66,12 @@ public class GroundMovement : MonoBehaviour
             canBrake = false;
         }
 
-        player.energy = Mathf.MoveTowards(player.energy, 0, Time.fixedDeltaTime * body.linearVelocityX / player.data.MAX_SPEED);
+        player.energy = Mathf.MoveTowards(
+            player.energy, 0, Time.fixedDeltaTime * body.linearVelocityX / player.data.MAX_SPEED + player.max_speed_modifier
+        );
+
+        OutOfBounds();
+        Player.distance += body.linearVelocityX * Time.fixedDeltaTime;
     }
 
     void OnSpeed(InputAction.CallbackContext context)
@@ -77,6 +82,14 @@ public class GroundMovement : MonoBehaviour
     void OnJump(InputAction.CallbackContext context)
     {
         if (GroundCheck()) body.linearVelocityY = player.data.JUMP_FORCE;
+    }
+
+    void OutOfBounds()
+    {
+        if (transform.position.y < -20)
+        {
+            Destroy(gameObject);
+        }
     }
 
     RaycastHit2D GroundCheck()

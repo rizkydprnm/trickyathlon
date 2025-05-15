@@ -30,10 +30,15 @@ public class ChunkSpawner : Node
 
         float randomValue = (float)data.Randomizer.NextDouble();
         Vector3 offset = Vector2.up * Mathf.Round((randomValue * 2 - 1f) * chunkData.DeltaYRange);
+        
+        // Calculate the new position with the offset
+        Vector3 newPosition = data.NextLocation.position + offset;
+        
+        // Clamp the Y position between -10 and 10
+        newPosition.y = Mathf.Clamp(newPosition.y, -10f, 10f);
 
-        GameObject chunk = Instantiate(chunkData.ChunkPrefab, data.NextLocation.position + offset, Quaternion.identity);
+        GameObject chunk = Instantiate(chunkData.ChunkPrefab, newPosition, Quaternion.identity);
         chunk.transform.SetParent(null);
-        // chunk.transform.localPosition = Vector3.zero;
 
         Chunk chunkComponent = chunk.GetComponent<Chunk>();
         if (chunkComponent != null)

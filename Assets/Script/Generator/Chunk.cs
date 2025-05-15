@@ -13,7 +13,7 @@ public class Chunk : MonoBehaviour
     void FixedUpdate()
     {
         // Destroy the chunk if it is too far behind the camera
-        if (Camera.main.transform.position.x - transform.position.x > 25f)
+        if (Camera.main.transform.position.x - transform.position.x > 30f)
         {
             Destroy(gameObject);
             Generator.ChunkDestroyed?.Invoke();
