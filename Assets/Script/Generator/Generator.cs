@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
+
 using BehaviorTree;
 
 /// <summary>
@@ -10,7 +12,7 @@ public struct GeneratorData
     public System.Random Randomizer;
     public int Seed;
 
-    public ChunkData PreviousChunk;
+    public Queue<GameObject> PreviousChunks;
     public Transform NextLocation;
 
     public int ChunksPlaced;
@@ -40,6 +42,7 @@ public class Generator : MonoBehaviour
             data = new();
             isDataInitialized = true;
         }
+        data.PreviousChunks = new();
         data.Randomizer = new(seed);
         data.Seed = seed;
     }

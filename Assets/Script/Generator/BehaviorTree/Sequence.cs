@@ -9,7 +9,7 @@ namespace BehaviorTree
         {
             foreach (Transform child in transform)
             {
-                Node task = child.GetComponent<Node>();
+                child.TryGetComponent(out Node task);
                 if (task == null)
                 {
                     Debug.LogError($"Child {child.name} does not have a Node component.");

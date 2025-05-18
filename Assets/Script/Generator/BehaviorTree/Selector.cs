@@ -18,10 +18,9 @@ namespace BehaviorTree
         {
             if (!randomSelector)
             {
-
                 foreach (Transform child in transform)
                 {
-                    Node task = child.GetComponent<Node>();
+                    child.TryGetComponent(out Node task);
                     if (task == null)
                     {
                         Debug.LogError($"Child {child.name} does not have a Node component.");
@@ -39,7 +38,7 @@ namespace BehaviorTree
                 while (attempts < maxRandomAttempts)
                 {
                     float randomValue = (float) data.Randomizer.NextDouble();
-                    Node selectedChild = transform.GetChild((int) Mathf.Floor(randomValue * transform.childCount)).GetComponent<Node>();
+                    transform.GetChild((int) Mathf.Floor(randomValue * transform.childCount)).TryGetComponent(out Node selectedChild);
                     
                     if (selectedChild == null)
                     {
