@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Profiling;
+
 using System.Collections.Generic;
 
 using BehaviorTree;
@@ -49,11 +51,16 @@ public class Generator : MonoBehaviour
 
     void Start()
     {
-        Initialize(Random.Range(-10000, 10000));
+        Initialize(Random.Range(0, int.MaxValue));
         ChunkDestroyed.AddListener(SpawnChunk);
 
         data.NextLocation = startLocation;
+
+        Profiler.BeginSample("Generator Start");
         for (int i = 0; i < initialChunksAmount; i++) SpawnChunk();
+        Profiler.EndSample();
+
+        Debug.Log($"Generator initialized with seed: {data.Seed}");
     }
 
     void SpawnChunk()

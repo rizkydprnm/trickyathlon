@@ -12,7 +12,7 @@ namespace BehaviorTree
 
         public override bool Execute(ref GeneratorData data)
         {
-            return true;
+            return data.NextLocation.position.x >= minDistance && data.NextLocation.position.x <= maxDistance;
         }
     }
 }

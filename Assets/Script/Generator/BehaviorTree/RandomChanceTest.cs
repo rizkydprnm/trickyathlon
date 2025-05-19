@@ -21,13 +21,12 @@ namespace BehaviorTree
             // Check if the random value is less than or equal to the chance
             if (randomValue <= chance)
             {
-                // chance -= chanceDecrease;
-                chance = Mathf.Clamp(chance - chanceDecrease, 0f, 1f);
+                chance = Mathf.MoveTowards(chance, 0f, chanceDecrease);
                 return true;
             }
             else
             {
-                chance = Mathf.Clamp(chance + chanceIncrease, 0f, 1f);
+                chance = Mathf.MoveTowards(chance, 1f, chanceIncrease);
                 return false;
             }
         }
