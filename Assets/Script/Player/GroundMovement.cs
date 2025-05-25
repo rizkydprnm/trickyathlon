@@ -33,13 +33,19 @@ public class GroundMovement : MonoBehaviour
     {
         GroundCheck();
 
-        if (Player.energy == 0)
+        if (Player.Instance.Energy == 0)
         {
             body.linearVelocityX = Mathf.MoveTowards(
                 body.linearVelocityX,
                 0,
                 Time.fixedDeltaTime * player.data.ACCELERATION
             );
+
+            if (body.linearVelocityX == 0)
+            {
+                Player.Instance.TimeFinished = Time.time;
+                Player.OnPlayerDeath?.Invoke();
+            }
         }
 
         else if (speedInput < 0 && canBrake)
@@ -76,14 +82,15 @@ public class GroundMovement : MonoBehaviour
             canBrake = false;
         }
 
-        
-        Player.energy = Mathf.MoveTowards(
-            Player.energy,
+
+        Player.Instance.Energy = Mathf.MoveTowards(
+            Player.Instance.Energy,
             0,
             Time.fixedDeltaTime * body.linearVelocityX / (player.data.MAX_SPEED + player.max_speed_modifier)
         );
 
-        Player.distance += body.linearVelocityX * Time.fixedDeltaTime;
+        Player.Instance.Distance += body.linearVelocityX * Time.fixedDeltaTime;
+        OutOfBoundsCheck();
     }
 
     void OnSpeed(InputAction.CallbackContext context)
@@ -99,5 +106,15 @@ public class GroundMovement : MonoBehaviour
     RaycastHit2D GroundCheck()
     {
         return Physics2D.BoxCast(transform.position, Vector2.one, 0, Vector2.down, 0.05f, LayerMask.GetMask("Ground"));
+    }
+    
+    void OutOfBoundsCheck()
+    {
+        if (transform.position.y < -25)
+        {
+            Player.Instance.TimeFinished = Time.time;
+            Destroy(gameObject);
+            Player.OnPlayerDeath.Invoke();
+        }
     }
 }

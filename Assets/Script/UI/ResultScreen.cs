@@ -1,0 +1,32 @@
+using System;
+using TMPro;
+using UnityEngine;
+
+using PrimeTween;
+
+public class ResultScreen : MonoBehaviour
+{
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI seedText;
+    [SerializeField] TextMeshProUGUI speedText;
+    [SerializeField] TextMeshProUGUI timeText;
+
+    void Start()
+    {
+        Player.OnPlayerDeath.AddListener(OnPlayerDeath);
+    }
+
+    void OnPlayerDeath()
+    {
+        Tween.UIAnchoredPositionX(GetComponent<RectTransform>(), startValue: 200, endValue: 0, duration: 0.125f, Ease.InCirc);
+        Player.OnPlayerDeath.RemoveListener(OnPlayerDeath);
+
+        GeneratorData data = Generator.GetData();
+        scoreText.text = $"{Player.Instance.Distance:F2}m";
+        seedText.text = $"{data.Seed:X}"; // Changed to hexadecimal format
+        speedText.text = $"{Player.Instance.Distance / Player.Instance.Playtime:F2}";
+
+        TimeSpan time = TimeSpan.FromSeconds(Player.Instance.Playtime);
+        timeText.text = $"{time:mm\\:ss\\.fff}";
+    }
+}

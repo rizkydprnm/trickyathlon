@@ -2,10 +2,6 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    /// <summary>
-    /// Selector node that executes its children in a specific order or randomly.
-    /// If the selector is set to random, it will attempt to select a child randomly
-    /// </summary>
     public class Selector : Node
     {
         [Tooltip("If enabled, the selector will choose children randomly. Otherwise, it will execute them sequentially.")]
@@ -38,8 +34,8 @@ namespace BehaviorTree
                 while (attempts < maxRandomAttempts)
                 {
                     float randomValue = (float) data.Randomizer.NextDouble();
-                    transform.GetChild((int) Mathf.Floor(randomValue * transform.childCount)).TryGetComponent(out Node selectedChild);
-                    
+                    transform.GetChild(Mathf.FloorToInt(randomValue * transform.childCount)).TryGetComponent(out Node selectedChild);
+
                     if (selectedChild == null)
                     {
                         Debug.LogError($"Child {selectedChild.name} does not have a Node component.");
