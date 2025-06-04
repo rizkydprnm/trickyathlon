@@ -12,6 +12,8 @@ public class GroundMovement : MonoBehaviour
     Player player;
     Rigidbody2D body;
 
+    [SerializeField] Animator animator;
+
     void Start()
     {
         speedAction = InputSystem.actions["Player/Speed"];
@@ -31,6 +33,8 @@ public class GroundMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        animator.SetFloat("Run", Mathf.Abs(body.linearVelocityX / (player.data.MAX_SPEED + player.max_speed_modifier)));
+
         GroundCheck();
 
         if (Player.Instance.Energy == 0)

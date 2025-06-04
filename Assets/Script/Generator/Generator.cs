@@ -60,6 +60,7 @@ public class Generator : MonoBehaviour
 
     void Start()
     {
+        Initialize(Random.Range(0, int.MaxValue));
         Debug.Log($"Generator initialized with seed: {data.Seed}");
 
         ChunkDestroyed.AddListener(SpawnChunk);

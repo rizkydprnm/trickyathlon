@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6578570689582484017, guid: 3cfd3cbf12d02464fb744827c8999d52, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 4738461717213993404}
     - target: {fileID: 6740279341177328933, guid: 3cfd3cbf12d02464fb744827c8999d52, type: 3}
       propertyPath: m_Size.x
       value: 0.75
