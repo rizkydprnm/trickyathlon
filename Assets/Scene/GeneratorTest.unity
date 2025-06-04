@@ -148,10 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e3d0106b36d5c43963818643266402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attempts: 100
   nextStates:
   - {fileID: 1937581939}
   - {fileID: 786103755}
   - {fileID: 120256643}
+  - {fileID: 868380545}
 --- !u!4 &110155001
 Transform:
   m_ObjectHideFlags: 0
@@ -350,6 +352,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155774765}
   m_CullTransparentMesh: 1
+--- !u!1 &257012957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257012959}
+  - component: {fileID: 257012958}
+  m_Layer: 0
+  m_Name: SpawnBridgeEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &257012958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257012957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5ebce808526e9408bfc50c2425dc6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 9183550355880342064, guid: cd184dfd27611d94ab9dfb8a053811f2, type: 3}
+  deltaYRange: 0
+  copies: 1
+  randomizeCopies: 0
+  nextState: {fileID: 110155000}
+  checkType: 0
+  previousChunks: []
+--- !u!4 &257012959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257012957}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 452231456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &272146977
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +617,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304965645}
   m_CullTransparentMesh: 1
+--- !u!1 &306147866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306147868}
+  - component: {fileID: 306147867}
+  m_Layer: 0
+  m_Name: SpawnBridgeMiddle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &306147867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306147866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5ebce808526e9408bfc50c2425dc6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 6391155723442084739, guid: 54f0a89a7cea73345994ce4e3287d2ac, type: 3}
+  deltaYRange: 0
+  copies: 20
+  randomizeCopies: 1
+  nextState: {fileID: 257012958}
+  checkType: 0
+  previousChunks: []
+--- !u!4 &306147868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306147866}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 452231456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &335296092
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +854,102 @@ MonoBehaviour:
   seedText: {fileID: 1287880658}
   speedText: {fileID: 1601390516}
   timeText: {fileID: 1970422943}
+--- !u!1 &407938647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407938648}
+  - component: {fileID: 407938649}
+  m_Layer: 0
+  m_Name: BridgeEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407938648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407938647}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677826465}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407938649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407938647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d567d7cba3a3d94499d68fff36989e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 9183550355880342064, guid: cd184dfd27611d94ab9dfb8a053811f2, type: 3}
+  deltaYRange: 0
+  copies: 1
+  randomizeCopies: 0
+--- !u!1 &449703483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449703484}
+  - component: {fileID: 449703485}
+  m_Layer: 0
+  m_Name: BridgeStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449703484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449703483}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677826465}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449703485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449703483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d567d7cba3a3d94499d68fff36989e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 9183550355880342064, guid: 16b73bfd3f032dc4492262efe9538adb, type: 3}
+  deltaYRange: 2
+  copies: 1
+  randomizeCopies: 0
 --- !u!1 &452231453
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &452231454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +1013,9 @@ Transform:
   - {fileID: 1937581940}
   - {fileID: 786103756}
   - {fileID: 120256644}
+  - {fileID: 868380546}
+  - {fileID: 306147868}
+  - {fileID: 257012959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502832796
@@ -969,6 +1172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 4774643790767990503, guid: 3c61469f656fd974693f24ecdce336ba, type: 3}
   deltaYRange: 2
+  copies: 1
+  randomizeCopies: 0
 --- !u!1 &553832182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 7618376493304179495, guid: fe9c1d2a4413bca47b5de08cd26e8f7e, type: 3}
   deltaYRange: 2
+  copies: 1
+  randomizeCopies: 0
 --- !u!1 &786103754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1442,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 4774643790767990503, guid: 3c61469f656fd974693f24ecdce336ba, type: 3}
   deltaYRange: 2
+  copies: 1
+  randomizeCopies: 0
   nextState: {fileID: 110155000}
+  checkType: 0
+  previousChunks: []
 --- !u!4 &786103756
 Transform:
   m_ObjectHideFlags: 0
@@ -1421,6 +1632,58 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &868380544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868380546}
+  - component: {fileID: 868380545}
+  m_Layer: 0
+  m_Name: SpawnBridgeStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &868380545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868380544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5ebce808526e9408bfc50c2425dc6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 9183550355880342064, guid: 16b73bfd3f032dc4492262efe9538adb, type: 3}
+  deltaYRange: 1
+  copies: 1
+  randomizeCopies: 0
+  nextState: {fileID: 306147867}
+  checkType: 0
+  previousChunks:
+  - {fileID: 9183550355880342064, guid: 16b73bfd3f032dc4492262efe9538adb, type: 3}
+--- !u!4 &868380546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868380544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 452231456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893546970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1518743627
 Transform:
   m_ObjectHideFlags: 0
@@ -2148,6 +2411,7 @@ Transform:
   - {fileID: 893546971}
   - {fileID: 272146978}
   - {fileID: 553832183}
+  - {fileID: 1677826465}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1518743629
@@ -2163,7 +2427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLocation: {fileID: 1518743627}
-  initialChunksAmount: 100
+  initialChunksAmount: 25
   mode: 0
 --- !u!114 &1518743630
 MonoBehaviour:
@@ -9797,6 +10061,55 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1677826464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677826465}
+  - component: {fileID: 1677826466}
+  m_Layer: 0
+  m_Name: Bridge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677826465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677826464}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2084185285}
+  - {fileID: 449703484}
+  - {fileID: 1874165925}
+  - {fileID: 407938648}
+  m_Father: {fileID: 1518743627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1677826466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677826464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08728e7ca0844b445bc561cbd03dc5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepExecuting: 0
 --- !u!1 &1835292975
 GameObject:
   m_ObjectHideFlags: 0
@@ -10022,6 +10335,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843442939}
   m_CullTransparentMesh: 1
+--- !u!1 &1874165924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874165925}
+  - component: {fileID: 1874165926}
+  m_Layer: 0
+  m_Name: BridgeMiddle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874165925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874165924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677826465}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874165926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874165924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d567d7cba3a3d94499d68fff36989e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 6391155723442084739, guid: 54f0a89a7cea73345994ce4e3287d2ac, type: 3}
+  deltaYRange: 0
+  copies: 20
+  randomizeCopies: 1
 --- !u!1 &1926373849
 GameObject:
   m_ObjectHideFlags: 0
@@ -10189,7 +10550,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 7618376493304179495, guid: fe9c1d2a4413bca47b5de08cd26e8f7e, type: 3}
   deltaYRange: 2
+  copies: 1
+  randomizeCopies: 0
   nextState: {fileID: 110155000}
+  checkType: 0
+  previousChunks: []
 --- !u!4 &1937581940
 Transform:
   m_ObjectHideFlags: 0
@@ -10521,6 +10886,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055035495}
   m_CullTransparentMesh: 1
+--- !u!1 &2084185284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084185285}
+  - component: {fileID: 2084185286}
+  m_Layer: 0
+  m_Name: PreviousChunk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2084185285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084185284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677826465}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2084185286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084185284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d067b0934bafb44eb2451653339c749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkType: 0
+  previousChunks:
+  - {fileID: 9183550355880342064, guid: 16b73bfd3f032dc4492262efe9538adb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

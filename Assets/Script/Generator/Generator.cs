@@ -46,17 +46,13 @@ public class Generator : MonoBehaviour
     [SerializeField] Mode mode = Mode.BehaviorTree;
 
     protected static GeneratorData data;
-    protected static bool isDataInitialized = false;
 
     public static UnityEvent ChunkDestroyed = new();
 
     public static void Initialize(int seed)
     {
-        if (!isDataInitialized)
-        {
-            data = new();
-            isDataInitialized = true;
-        }
+        data = new();
+        
         data.PreviousChunks = new();
         data.Randomizer = new(seed);
         data.Seed = seed;
@@ -64,7 +60,6 @@ public class Generator : MonoBehaviour
 
     void Start()
     {
-        Initialize(12345678);
         Debug.Log($"Generator initialized with seed: {data.Seed}");
 
         ChunkDestroyed.AddListener(SpawnChunk);
