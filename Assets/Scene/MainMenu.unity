@@ -1454,7 +1454,7 @@ GameObject:
   - component: {fileID: 301214735}
   - component: {fileID: 301214734}
   - component: {fileID: 301214733}
-  - component: {fileID: 301214732}
+  - component: {fileID: 301214736}
   m_Layer: 5
   m_Name: Random
   m_TagString: Untagged
@@ -1484,19 +1484,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -120}
   m_SizeDelta: {x: 200, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &301214732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301214730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c36fbab6ac92544f89a0c63d7ea8c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextMenu: {fileID: 645969403}
 --- !u!114 &301214733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,8 +1528,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 301214732}
-        m_TargetAssemblyTypeName: MenuOpen, Assembly-CSharp
+      - m_Target: {fileID: 301214736}
+        m_TargetAssemblyTypeName: PlayGame, Assembly-CSharp
         m_MethodName: Execute
         m_Mode: 1
         m_Arguments:
@@ -1591,6 +1578,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301214730}
   m_CullTransparentMesh: 1
+--- !u!114 &301214736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301214730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00acabea4d57bc149b633c3226e116ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  seed: 0
+  seedText: {fileID: 0}
 --- !u!1 &323148832
 GameObject:
   m_ObjectHideFlags: 0
