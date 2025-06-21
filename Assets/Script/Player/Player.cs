@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -8,19 +7,19 @@ public class Player : MonoBehaviour
 
     public static UnityEvent OnPlayerDeath = new();
 
-    public float Energy = 100;
     public float Distance = 0;
-    public float Score = 0;
     public float Speed = 0;
 
-    public float TimeStarted = 0;
-    public float TimeFinished = 0;
-    public float Playtime => TimeFinished - TimeStarted;
+    public float nextMilestone = 100f;
+    public int currentSpeedLevel = 1;
 
-    public bool IsStarted = false;
+    [HideInInspector] public float TimeStarted = 0;
+    [HideInInspector] public float TimeFinished = 0;
+    [HideInInspector] public float Playtime => TimeFinished - TimeStarted;
+
     public static Player Instance { get; private set; }
 
-    [HideInInspector] public float max_speed_modifier = 0;
+    public float max_speed_modifier = 0;
 
     void Start()
     {

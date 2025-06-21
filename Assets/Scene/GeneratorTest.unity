@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352ae1340ce903844818d0ede64ab168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gapLength: 10
+  gapLength: 5
   randomizeGapLength: 1
   nextState: {fileID: 110155000}
 --- !u!4 &120256644
@@ -215,6 +215,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 452231456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &153156098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153156099}
+  m_Layer: 0
+  m_Name: SceneCode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &153156099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153156098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.359684, y: 0.9395821, z: -10.010322}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &155774765
 GameObject:
@@ -2370,7 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5971a1a4da0744da4408aed0a3c67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gapLength: 10
+  gapLength: 5
   randomizeGapLength: 1
 --- !u!4 &1335737975 stripped
 Transform:
@@ -10944,3 +10975,4 @@ SceneRoots:
   - {fileID: 1224165831}
   - {fileID: 1518743627}
   - {fileID: 452231456}
+  - {fileID: 153156099}

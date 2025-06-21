@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class GroundMovement : MonoBehaviour
     Rigidbody2D body;
 
     [SerializeField] Animator animator;
+    // Track the current speed milestone level
 
     void Start()
     {
@@ -34,25 +36,9 @@ public class GroundMovement : MonoBehaviour
     void FixedUpdate()
     {
         animator.SetFloat("Run", Mathf.Abs(body.linearVelocityX / (player.data.MAX_SPEED + player.max_speed_modifier)));
-
         GroundCheck();
 
-        if (Player.Instance.Energy == 0)
-        {
-            body.linearVelocityX = Mathf.MoveTowards(
-                body.linearVelocityX,
-                0,
-                Time.fixedDeltaTime * player.data.ACCELERATION
-            );
-
-            if (body.linearVelocityX == 0)
-            {
-                Player.Instance.TimeFinished = Time.time;
-                Player.OnPlayerDeath?.Invoke();
-            }
-        }
-
-        else if (speedInput < 0 && canBrake)
+        if (speedInput < 0 && canBrake)
         {
             body.linearVelocityX = Mathf.MoveTowards(
                 body.linearVelocityX,
@@ -64,7 +50,7 @@ public class GroundMovement : MonoBehaviour
         {
             body.linearVelocityX = Mathf.MoveTowards(
                 body.linearVelocityX,
-                2 * player.data.MAX_SPEED + player.max_speed_modifier,
+                2 * (player.data.MAX_SPEED + player.max_speed_modifier),
                 Time.fixedDeltaTime * 2 * player.data.ACCELERATION
             );
         }
@@ -76,7 +62,6 @@ public class GroundMovement : MonoBehaviour
                 Time.fixedDeltaTime * player.data.ACCELERATION
             );
         }
-
         if (body.linearVelocityX >= (player.data.MAX_SPEED + player.max_speed_modifier))
         {
             canBrake = true;
@@ -86,14 +71,9 @@ public class GroundMovement : MonoBehaviour
             canBrake = false;
         }
 
-
-        Player.Instance.Energy = Mathf.MoveTowards(
-            Player.Instance.Energy,
-            0,
-            Time.fixedDeltaTime * body.linearVelocityX / (player.data.MAX_SPEED + player.max_speed_modifier)
-        );
-
-        Player.Instance.Distance += body.linearVelocityX * Time.fixedDeltaTime;
+        player.Speed = body.linearVelocityX;
+        player.Distance += body.linearVelocityX * Time.fixedDeltaTime;
+        CheckSpeedMilestones();
         OutOfBoundsCheck();
     }
 
@@ -111,7 +91,7 @@ public class GroundMovement : MonoBehaviour
     {
         return Physics2D.BoxCast(transform.position, Vector2.one, 0, Vector2.down, 0.05f, LayerMask.GetMask("Ground"));
     }
-    
+
     void OutOfBoundsCheck()
     {
         if (transform.position.y < -25)
@@ -119,6 +99,20 @@ public class GroundMovement : MonoBehaviour
             Player.Instance.TimeFinished = Time.time;
             Destroy(gameObject);
             Player.OnPlayerDeath.Invoke();
+        }
+    }
+
+    void CheckSpeedMilestones()
+    {
+        // Calculate the next milestone distance for the current level
+        // Pattern: 100, 400, 900, 1600, ...
+        // nextMilestone = Mathf.Pow(100 * currentSpeedLevel, 2);
+        if (player.Distance >= player.nextMilestone)
+        {
+            player.max_speed_modifier += 1f;
+
+            player.nextMilestone += (++player.currentSpeedLevel + 1) * 50f;
+            Debug.Log($"{player.currentSpeedLevel} {player.nextMilestone}");
         }
     }
 }
