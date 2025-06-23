@@ -9,6 +9,6 @@ public class StatDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        energyText.text = $"<color=#FF9800>SPEED</color>\n<size=12px>{Player.Instance.Speed:F2}</size>";
+        energyText.text = $"<color=#FF9800>SPEED</color>\n<size=12px>{(int)Player.Instance.Speed}</size>m/s";
     }
 }

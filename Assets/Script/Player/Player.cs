@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     public static Player Instance { get; private set; }
 
-    public float max_speed_modifier = 0;
+    public float MaxSpeedModifier = 0;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
             return;
         }
         Instance = this;
-        
+
         // Application.targetFrameRate = 60;
         TimeStarted = Time.time;
 
@@ -41,4 +41,17 @@ public class Player : MonoBehaviour
         OnPlayerDeath.RemoveListener(PlayerDeath);
     }
     
+    public void CheckSpeedMilestones()
+    {
+        // Calculate the next milestone distance for the current level
+        // Pattern: 100, 400, 900, 1600, ...
+        // nextMilestone = Mathf.Pow(100 * currentSpeedLevel, 2);
+        if (Distance >= nextMilestone)
+        {
+            MaxSpeedModifier += 1f;
+
+            nextMilestone += (++currentSpeedLevel + 1) * 50f;
+            Debug.Log($"{currentSpeedLevel} {nextMilestone}");
+        }
+    }
 }

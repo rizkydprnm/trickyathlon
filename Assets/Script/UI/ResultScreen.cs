@@ -22,7 +22,7 @@ public class ResultScreen : MonoBehaviour
         Player.OnPlayerDeath.RemoveListener(OnPlayerDeath);
 
         GeneratorData data = Generator.GetData();
-        scoreText.text = $"{Player.Instance.Distance:F2}m";
+        scoreText.text = $"{Player.Instance.Distance:F2}<size=8>m</size>";
         seedText.text = $"{data.Seed:X}"; // Changed to hexadecimal format
         speedText.text = $"{Player.Instance.Distance / Player.Instance.Playtime:F2}";
 

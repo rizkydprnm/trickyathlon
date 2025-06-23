@@ -70,9 +70,9 @@ public class Generator : MonoBehaviour
         for (int i = 0; i < initialChunksAmount; i++) SpawnChunk();
         Profiler.EndSample();
 
-#if UNITY_EDITOR
-        EditorApplication.isPaused = true; // Pause the editor after initialization for debugging purposes
-#endif
+// #if UNITY_EDITOR
+//         EditorApplication.isPaused = true; // Pause the editor after initialization for debugging purposes
+// #endif
 
     }
 

@@ -4843,7 +4843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481583668190543778}
   - component: {fileID: 4664028906000465651}
-  - component: {fileID: 6740279341177328933}
+  - component: {fileID: 825296132961788723}
   - component: {fileID: 7753849141497650263}
   - component: {fileID: 6578570689582484017}
   m_Layer: 6
@@ -4897,7 +4897,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &6740279341177328933
+--- !u!61 &825296132961788723
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4941,7 +4941,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.75, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &7753849141497650263
 MonoBehaviour:
@@ -4956,8 +4956,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <data>k__BackingField: {fileID: 0}
-  energy: 100
-  distance: 0
+  Distance: 0
+  Speed: 0
+  nextMilestone: 100
+  currentSpeedLevel: 1
+  TimeStarted: 0
+  TimeFinished: 0
+  MaxSpeedModifier: 0
 --- !u!114 &6578570689582484017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4970,6 +4975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95692228b5d86764b8f0448521466e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &7412107895685024466
 GameObject:
   m_ObjectHideFlags: 0
