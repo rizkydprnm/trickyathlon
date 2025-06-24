@@ -59,7 +59,7 @@ public class Generator : MonoBehaviour
 
     void Start()
     {
-        if (data.Randomizer == null) Initialize(Random.Range(0, int.MaxValue));
+        if (data.Randomizer == null) Initialize(12345678);
         Debug.Log($"Generator initialized with seed: {data.Seed}");
 
         ChunkDestroyed.AddListener(SpawnChunk);
@@ -70,9 +70,9 @@ public class Generator : MonoBehaviour
         for (int i = 0; i < initialChunksAmount; i++) SpawnChunk();
         Profiler.EndSample();
 
-// #if UNITY_EDITOR
-//         EditorApplication.isPaused = true; // Pause the editor after initialization for debugging purposes
-// #endif
+#if UNITY_EDITOR
+        EditorApplication.isPaused = true; // Pause the editor after initialization for debugging purposes
+#endif
 
     }
 
