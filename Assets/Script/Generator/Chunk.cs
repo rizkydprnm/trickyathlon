@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Represents a chunk in the game world. Automatically destroys itself
-/// when it is too far behind the camera to optimize performance.
-/// </summary>
 public class Chunk : MonoBehaviour
 {
     [field: SerializeField] 

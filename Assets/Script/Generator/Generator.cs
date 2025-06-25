@@ -8,9 +8,6 @@ using BehaviorTree;
 using StateMachine;
 using UnityEditor;
 
-/// <summary>
-/// GeneratorData struct holds the data needed for the generator to work.
-/// </summary>
 public struct GeneratorData
 {
     public System.Random Randomizer;
@@ -21,11 +18,6 @@ public struct GeneratorData
 
     public int ChunksPlaced;
 }
-
-/// <summary>
-/// Generator class is responsible for generating chunks in the game world.
-/// It uses a behavior tree-like structure to execute its children nodes in a specific order.
-/// </summary>
 
 public class Generator : MonoBehaviour
 {
@@ -51,7 +43,7 @@ public class Generator : MonoBehaviour
     public static void Initialize(int seed)
     {
         data = new();
-        
+
         data.PreviousChunks = new();
         data.Randomizer = new(seed);
         data.Seed = seed;
