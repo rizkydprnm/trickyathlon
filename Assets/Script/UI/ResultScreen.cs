@@ -23,7 +23,7 @@ public class ResultScreen : MonoBehaviour
 
         GeneratorData data = Generator.GetData();
         scoreText.text = $"{Player.Instance.Distance:F2}<size=8>m</size>";
-        seedText.text = $"{data.Seed:X}"; // Changed to hexadecimal format
+        seedText.text = $"{data.Seed:X8}"; // Changed to hexadecimal format with 8-digit padding
         speedText.text = $"{Player.Instance.Distance / Player.Instance.Playtime:F2}";
 
         TimeSpan time = TimeSpan.FromSeconds(Player.Instance.Playtime);

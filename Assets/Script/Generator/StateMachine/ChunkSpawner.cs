@@ -73,7 +73,7 @@ namespace StateMachine
                     data.NextLocation = chunkComponent.NextLocation;
                 }
             }
-            if (data.PreviousChunks.Count == 3) data.PreviousChunks.Dequeue();
+            if (data.PreviousChunks.Count == 2) data.PreviousChunks.Dequeue();
             data.PreviousChunks.Enqueue(chunkToSpawn);
 
             data.ChunksPlaced++;
