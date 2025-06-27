@@ -119,6 +119,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &95884549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95884550}
+  - component: {fileID: 95884551}
+  m_Layer: 0
+  m_Name: Gap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &95884550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95884549}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518743627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95884551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95884549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d567d7cba3a3d94499d68fff36989e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 2918706436012531946, guid: a75bd972161ce654393ea2b6705c2c81, type: 3}
+  deltaYRange: 0
+  copies: 1
+  randomizeCopies: 0
 --- !u!1 &110154999
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +201,7 @@ MonoBehaviour:
   - {fileID: 1083967676}
   - {fileID: 1937581939}
   - {fileID: 786103755}
-  - {fileID: 120256643}
+  - {fileID: 120256645}
   - {fileID: 868380545}
 --- !u!4 &110155001
 Transform:
@@ -179,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 120256644}
-  - component: {fileID: 120256643}
+  - component: {fileID: 120256645}
   m_Layer: 0
   m_Name: SpawnGap
   m_TagString: Untagged
@@ -187,19 +235,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &120256643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120256642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352ae1340ce903844818d0ede64ab168, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextState: {fileID: 110155000}
 --- !u!4 &120256644
 Transform:
   m_ObjectHideFlags: 0
@@ -215,6 +250,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 452231456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &120256645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120256642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5ebce808526e9408bfc50c2425dc6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkToSpawn: {fileID: 2918706436012531946, guid: a75bd972161ce654393ea2b6705c2c81, type: 3}
+  deltaYRange: 0
+  copies: 1
+  randomizeCopies: 0
+  nextState: {fileID: 110155000}
+  checkType: 0
+  previousChunks:
+  - {fileID: 2918706436012531946, guid: a75bd972161ce654393ea2b6705c2c81, type: 3}
 --- !u!1 &153156098
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 6391155723442084739, guid: 54f0a89a7cea73345994ce4e3287d2ac, type: 3}
   deltaYRange: 0
-  copies: 20
+  copies: 10
   randomizeCopies: 1
   nextState: {fileID: 257012958}
   checkType: 0
@@ -931,7 +986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 9183550355880342064, guid: 16b73bfd3f032dc4492262efe9538adb, type: 3}
-  deltaYRange: 2
+  deltaYRange: 1
   copies: 1
   randomizeCopies: 0
 --- !u!1 &452231453
@@ -977,7 +1032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75248c00598854e4ba4ab5f7853980ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLocation: {fileID: 452231456}
+  startLocation: {fileID: 1224165831}
   initialChunksAmount: 25
   mode: 1
 --- !u!4 &452231456
@@ -989,7 +1044,7 @@ Transform:
   m_GameObject: {fileID: 452231453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2185,7 +2240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 4774643790767990503, guid: 4d1c6b3d047b4bd409ae9b7bea4a920f, type: 3}
-  deltaYRange: 1
+  deltaYRange: 2
   copies: 5
   randomizeCopies: 1
   nextState: {fileID: 110155000}
@@ -2372,50 +2427,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287880656}
   m_CullTransparentMesh: 1
---- !u!1 &1334952582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1334952583}
-  - component: {fileID: 1334952584}
-  m_Layer: 0
-  m_Name: SpawnGap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1334952583
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334952582}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1518743627}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1334952584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334952582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5971a1a4da0744da4408aed0a3c67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1335737975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475175714839177894, guid: 659895c79cf6c254ca2171962fd36095, type: 3}
@@ -2471,7 +2482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2523,14 +2534,14 @@ Transform:
   m_GameObject: {fileID: 1518743626}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1667117803}
   - {fileID: 750299188}
   - {fileID: 511074875}
-  - {fileID: 1334952583}
+  - {fileID: 95884550}
   - {fileID: 1677826465}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2546,7 +2557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75248c00598854e4ba4ab5f7853980ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLocation: {fileID: 1518743627}
+  startLocation: {fileID: 1224165831}
   initialChunksAmount: 25
   mode: 0
 --- !u!114 &1518743630
@@ -10226,7 +10237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 4774643790767990503, guid: 4d1c6b3d047b4bd409ae9b7bea4a920f, type: 3}
-  deltaYRange: 1
+  deltaYRange: 2
   copies: 5
   randomizeCopies: 1
 --- !u!1 &1677826464
@@ -10549,7 +10560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkToSpawn: {fileID: 6391155723442084739, guid: 54f0a89a7cea73345994ce4e3287d2ac, type: 3}
   deltaYRange: 0
-  copies: 20
+  copies: 10
   randomizeCopies: 1
 --- !u!1 &1926373849
 GameObject:

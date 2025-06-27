@@ -44,14 +44,15 @@ public class Generator : MonoBehaviour
     {
         data = new();
 
-        data.PreviousChunks = new();
         data.Randomizer = new(seed);
         data.Seed = seed;
+        data.PreviousChunks = new();
+        data.NextLocation = null; // Will be set in Start
+        data.ChunksPlaced = 0;
     }
 
     void Start()
     {
-        if (data.Randomizer == null) Initialize(12345678);
         Debug.Log($"Generator initialized with seed: {data.Seed}");
 
         ChunkDestroyed.AddListener(SpawnChunk);
@@ -59,7 +60,11 @@ public class Generator : MonoBehaviour
         data.NextLocation = startLocation;
 
         Profiler.BeginSample("Generator Start");
-        for (int i = 0; i < initialChunksAmount; i++) SpawnChunk();
+        while (data.ChunksPlaced < initialChunksAmount)
+        {
+            SpawnChunk();
+            Debug.Log($"{data.ChunksPlaced}");
+        }
         Profiler.EndSample();
 
 #if UNITY_EDITOR
@@ -88,5 +93,11 @@ public class Generator : MonoBehaviour
     {
         return data;
     }
-}
 
+    // Centralized random index selection to ensure consistent behavior between BehaviorTree and StateMachine
+    public static int GetRandomIndex(int count)
+    {
+        float randomValue = (float)data.Randomizer.NextDouble();
+        return Mathf.FloorToInt(randomValue * count);
+    }
+}

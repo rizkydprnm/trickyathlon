@@ -14,9 +14,8 @@ namespace StateMachine
         {
             for (int i = 0; i < attempts; i++)
             {
-                // Generate a random value between 0 and 1
-                float randomValue = (float)data.Randomizer.NextDouble();
-                int selectedIndex = Mathf.FloorToInt(randomValue * nextStates.Length);
+                // Use the centralized random index selection
+                int selectedIndex = Generator.GetRandomIndex(nextStates.Length);
 
                 State result = nextStates[selectedIndex].Execute(ref data);
                 if (result != null)

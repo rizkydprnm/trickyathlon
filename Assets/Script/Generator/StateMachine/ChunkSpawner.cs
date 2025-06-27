@@ -65,7 +65,11 @@ namespace StateMachine
             copies = randomizeCopies ? data.Randomizer.Next(1, copies + 1) : copies;
             for (int i = 0; i < copies; i++)
             {
-                GameObject chunk = Instantiate(chunkToSpawn, newPosition, Quaternion.identity);
+                // Apply the Y offset to the current position
+                Vector3 spawnPosition = data.NextLocation.position + offset;
+                spawnPosition.y = Mathf.Clamp(spawnPosition.y, -10f, 10f);
+
+                GameObject chunk = Instantiate(chunkToSpawn, spawnPosition, Quaternion.identity);
                 chunk.transform.SetParent(null);
 
                 if (chunk.TryGetComponent(out Chunk chunkComponent))

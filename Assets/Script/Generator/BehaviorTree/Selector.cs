@@ -33,8 +33,8 @@ namespace BehaviorTree
                 int attempts = 0;
                 while (attempts < maxRandomAttempts)
                 {
-                    float randomValue = (float) data.Randomizer.NextDouble();
-                    transform.GetChild(Mathf.FloorToInt(randomValue * transform.childCount)).TryGetComponent(out Node selectedChild);
+                    int selectedIndex = Generator.GetRandomIndex(transform.childCount);
+                    transform.GetChild(selectedIndex).TryGetComponent(out Node selectedChild);
 
                     if (selectedChild == null)
                     {
