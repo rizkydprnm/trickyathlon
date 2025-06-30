@@ -5,8 +5,8 @@ namespace StateMachine
     public class ExecuteRandom : State
     {
         [Tooltip("The amount of attempts to execute a random state.")]
-        [SerializeField, Min(1)] int attempts = 1;
-        
+        [SerializeField, Min(1)] uint attempts = 1;
+
         [Tooltip("Executes a random child state from this current state.")]
         [SerializeField] State[] nextStates;
 
