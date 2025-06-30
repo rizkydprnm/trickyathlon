@@ -53,19 +53,31 @@ public class Generator : MonoBehaviour
 
     void Start()
     {
+        Initialize(0x3ef511d7); // Default seed, can be changed later
         Debug.Log($"Generator initialized with seed: {data.Seed}");
 
         ChunkDestroyed.AddListener(SpawnChunk);
 
         data.NextLocation = startLocation;
 
-        Profiler.BeginSample("Generator Start");
-        while (data.ChunksPlaced < initialChunksAmount)
+        if (mode == Mode.BehaviorTree)
         {
-            SpawnChunk();
-            Debug.Log($"{data.ChunksPlaced}");
+            Profiler.BeginSample("Generator BT");
+            while (data.ChunksPlaced < initialChunksAmount)
+                GetComponent<Node>().Execute(ref data);
+            Profiler.EndSample();
         }
-        Profiler.EndSample();
+        else if (mode == Mode.StateMachine)
+        {
+            Profiler.BeginSample("Generator SM");
+            while (data.ChunksPlaced < initialChunksAmount)
+                GetComponent<GroundStateMachine>().Execute(ref data);
+            Profiler.EndSample();
+        }
+        else
+        {
+            Debug.LogError("Unknown generator mode.");
+        }
 
 #if UNITY_EDITOR
         EditorApplication.isPaused = true; // Pause the editor after initialization for debugging purposes
