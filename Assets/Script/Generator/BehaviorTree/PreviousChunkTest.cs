@@ -21,21 +21,21 @@ namespace BehaviorTree
         {
             if (checkType == CheckType.Blacklist)
             {
-            // Check if any chunk in the queue is in the blacklist
-            if (data.PreviousChunks.Any(chunk => previousChunks.Contains(chunk)))
-            {
-                Debug.LogWarning("A previous chunk is blacklisted.");
-                return false;
-            }
+                // Check if any chunk in the queue is in the blacklist
+                if (data.PreviousChunks.Any(chunk => previousChunks.Contains(chunk)))
+                {
+                    Debug.LogWarning("A previous chunk is blacklisted.");
+                    return false;
+                }
             }
             else // Whitelist
             {
-            // Check if at least one chunk in the queue is in the whitelist
-            if (!data.PreviousChunks.Any(chunk => previousChunks.Contains(chunk)))
-            {
-                Debug.LogWarning("None of the previous chunks are whitelisted.");
-                return false;
-            }
+                // Check if at least one chunk in the queue is in the whitelist
+                if (!data.PreviousChunks.Any(chunk => previousChunks.Contains(chunk)))
+                {
+                    Debug.LogWarning("None of the previous chunks are whitelisted.");
+                    return false;
+                }
             }
 
             return true;

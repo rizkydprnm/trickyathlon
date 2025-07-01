@@ -11,7 +11,7 @@ namespace BehaviorTree
         int deltaYRange = 1;
 
         [SerializeField, Tooltip("How many copies of the chunk to be spawned in a row."), Min(1)]
-        int copies = 1;
+        uint copies = 1;
 
         [SerializeField, Tooltip("Make the copies amount random (from 1 to copies).")]
         bool randomizeCopies = false;
