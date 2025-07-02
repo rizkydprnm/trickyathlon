@@ -53,7 +53,7 @@ public class Generator : MonoBehaviour
 
     void Start()
     {
-        Initialize(0x3ef511d7); // Default seed, can be changed later
+        // Initialize(0x3ef511d7); // Default seed, can be changed later
         Debug.Log($"Generator initialized with seed: {data.Seed}");
 
         ChunkDestroyed.AddListener(SpawnChunk);

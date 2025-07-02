@@ -13,7 +13,7 @@ public class PlayGame : MonoBehaviour
 
     [SerializeField] private Mode mode = Mode.RandomSeed;
 
-    [SerializeField] int seed;
+    int seed;
     [SerializeField] TextMeshProUGUI seedText;
 
     public void Execute()
@@ -26,18 +26,28 @@ public class PlayGame : MonoBehaviour
                 break;
 
             case Mode.SetSeed:
-                try
+                if (seedText.text.Length == 0) return;
+                string trimmedText = seedText.text.Trim();
+
+                // Filter out non-hex characters
+                string hexString = System.Text.RegularExpressions.Regex.Replace(trimmedText, "[^0-9a-fA-F]", "");
+
+                if (string.IsNullOrEmpty(hexString))
                 {
-                    seed = Convert.ToInt32(seedText.text, 16);
-                }
-                catch (FormatException)
-                {
-                    Debug.LogError("Invalid seed format: " + seedText.text);
+                    Debug.LogError("No valid hexadecimal characters in input");
                     return;
                 }
 
-                Generator.Initialize(seed);
-                SceneManager.LoadScene("GeneratorTest");
+                if (int.TryParse(hexString, System.Globalization.NumberStyles.HexNumber, null, out seed))
+                {
+                    Debug.Log($"Seed: {seed}");
+                    Generator.Initialize(seed);
+                    SceneManager.LoadScene("GeneratorTest");
+                }
+                else
+                {
+                    Debug.LogError($"Failed to parse '{hexString}' as hexadecimal number");
+                }
                 break;
         }
     }

@@ -1053,7 +1053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &452231454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLocation: {fileID: 1224165831}
-  initialChunksAmount: 500
+  initialChunksAmount: 25
   mode: 1
 --- !u!4 &452231456
 Transform:
@@ -2349,7 +2349,7 @@ GameObject:
   - component: {fileID: 1250560942}
   - component: {fileID: 1250560943}
   m_Layer: 0
-  m_Name: Check
+  m_Name: PreviousChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2618,7 +2618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1518743627
 Transform:
   m_ObjectHideFlags: 0
@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLocation: {fileID: 1224165831}
-  initialChunksAmount: 25
+  initialChunksAmount: 1000
   mode: 0
 --- !u!114 &1518743630
 MonoBehaviour:
@@ -2666,7 +2666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3763e7a4452894d44ae0b77e77fecc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSelector: 1
   maxRandomAttempts: 100
 --- !u!1 &1524266376
 GameObject:

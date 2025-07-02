@@ -1441,7 +1441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  seed: 0
   seedText: {fileID: 0}
 --- !u!1 &323148832
 GameObject:
@@ -1987,6 +1986,7 @@ GameObject:
   - component: {fileID: 398610698}
   - component: {fileID: 398610697}
   - component: {fileID: 398610696}
+  - component: {fileID: 398610699}
   m_Layer: 5
   m_Name: Seed
   m_TagString: Untagged
@@ -2075,7 +2075,19 @@ MonoBehaviour:
   m_CharacterLimit: 8
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 398610699}
+        m_TargetAssemblyTypeName: PlayGame, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -2153,6 +2165,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398610694}
   m_CullTransparentMesh: 1
+--- !u!114 &398610699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398610694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00acabea4d57bc149b633c3226e116ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  seedText: {fileID: 271501348}
 --- !u!1 &399970853
 GameObject:
   m_ObjectHideFlags: 0
