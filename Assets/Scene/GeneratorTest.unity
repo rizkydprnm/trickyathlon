@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLocation: {fileID: 1224165831}
-  initialChunksAmount: 1000
+  initialChunksAmount: 25
   mode: 0
 --- !u!114 &1518743630
 MonoBehaviour:
