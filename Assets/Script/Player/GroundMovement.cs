@@ -34,6 +34,17 @@ public class GroundMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
+    void OnDestroy()
+    {
+        speedAction.performed -= OnSpeed;
+        jumpAction.performed -= OnJump;
+
+        speedAction.canceled -= OnSpeed;
+
+        speedAction.Disable();
+        jumpAction.Disable();
+    }
+
     void FixedUpdate()
     {
         animator.SetFloat("Run", Mathf.Abs(body.linearVelocityX / (player.data.MAX_SPEED + player.MaxSpeedModifier)));

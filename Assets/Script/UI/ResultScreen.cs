@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 
 using PrimeTween;
+using UnityEngine.SceneManagement;
 
 public class ResultScreen : MonoBehaviour
 {
@@ -28,5 +29,24 @@ public class ResultScreen : MonoBehaviour
 
         TimeSpan time = TimeSpan.FromSeconds(Player.Instance.Playtime);
         timeText.text = $"{time:mm\\:ss\\.fff}";
+    }
+
+    public void RestartGame(bool randomSeed = false)
+    {
+        if (randomSeed)
+        {
+            Generator.Initialize(UnityEngine.Random.Range(0, int.MaxValue));
+        }
+        else
+        {
+            Generator.Initialize(Generator.GetData().Seed);
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
