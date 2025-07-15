@@ -47,7 +47,7 @@ public class Generator : MonoBehaviour
         data.Randomizer = new(seed);
         data.Seed = seed;
         data.PreviousChunks = new();
-        data.NextLocation = null; // Will be set in Start
+        data.NextLocation = null;
         data.ChunksPlaced = 0;
     }
 
