@@ -14,6 +14,8 @@ public class ResultScreen : MonoBehaviour
 
     [SerializeField] GameObject[] uiElements;
 
+    public static bool shown = false;
+
     void Start()
     {
         Player.OnPlayerDeath.AddListener(OnPlayerDeath);
@@ -21,6 +23,7 @@ public class ResultScreen : MonoBehaviour
 
     void OnPlayerDeath()
     {
+        shown = true;
         foreach (GameObject element in uiElements)
         {
             element.SetActive(false);
@@ -48,11 +51,13 @@ public class ResultScreen : MonoBehaviour
             Generator.Initialize(Generator.GetData().Seed);
         }
 
+        shown = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitGame()
     {
+        shown = false;
         SceneManager.LoadScene("MainMenu");
     }
 }
