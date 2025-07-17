@@ -12,6 +12,8 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI speedText;
     [SerializeField] TextMeshProUGUI timeText;
 
+    [SerializeField] GameObject[] uiElements;
+
     void Start()
     {
         Player.OnPlayerDeath.AddListener(OnPlayerDeath);
@@ -19,6 +21,10 @@ public class ResultScreen : MonoBehaviour
 
     void OnPlayerDeath()
     {
+        foreach (GameObject element in uiElements)
+        {
+            element.SetActive(false);
+        }
         Tween.UIAnchoredPositionX(GetComponent<RectTransform>(), startValue: 200, endValue: 0, duration: 0.125f, Ease.InCirc);
         Player.OnPlayerDeath.RemoveListener(OnPlayerDeath);
 
