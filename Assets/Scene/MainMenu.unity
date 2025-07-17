@@ -6255,10 +6255,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Special thanks to
 
-    <color=#FFEA00>Assets by Pixel Frog and Craftpix
+    <color=#FFEA00>Assets by Pixel Frog, Craftpix,
+    and Jayvee Enaguas
 
-    Icons
-    by Leo Red'
+    Icons by Leo Red'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b164722c7cf819a45902188304616b43, type: 2}
   m_sharedMaterial: {fileID: 61873566339070220, guid: b164722c7cf819a45902188304616b43, type: 2}
