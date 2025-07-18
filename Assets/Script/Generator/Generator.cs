@@ -25,7 +25,7 @@ public class Generator : MonoBehaviour
     [SerializeField] Transform startLocation;
 
     [Tooltip("The number of chunks to be generated the first time.")]
-    [SerializeField, Min(10)] int initialChunksAmount = 10;
+    [SerializeField, Min(1)] int initialChunksAmount = 10;
 
     enum Mode
     {
