@@ -40,12 +40,9 @@ public class Player : MonoBehaviour
     {
         OnPlayerDeath.RemoveListener(PlayerDeath);
     }
-    
+
     public void CheckSpeedMilestones()
     {
-        // Calculate the next milestone distance for the current level
-        // Pattern: 100, 400, 900, 1600, ...
-        // nextMilestone = Mathf.Pow(100 * currentSpeedLevel, 2);
         if (Distance >= nextMilestone)
         {
             MaxSpeedModifier += 1f;
