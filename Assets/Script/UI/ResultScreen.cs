@@ -11,6 +11,7 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI seedText;
     [SerializeField] TextMeshProUGUI speedText;
     [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] AudioSource fallSound;
 
     [SerializeField] GameObject[] uiElements;
 
@@ -24,6 +25,7 @@ public class ResultScreen : MonoBehaviour
     void OnPlayerDeath()
     {
         shown = true;
+        fallSound.Play();
         foreach (GameObject element in uiElements)
         {
             element.SetActive(false);

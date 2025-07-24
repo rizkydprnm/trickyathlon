@@ -8,6 +8,8 @@ public class GroundMovement : MonoBehaviour
     InputAction speedAction;
     InputAction jumpAction;
 
+    [SerializeField] AudioSource jumpSound;
+
     float speedInput;
     bool canBrake = false;
 
@@ -96,7 +98,12 @@ public class GroundMovement : MonoBehaviour
 
     void OnJump(InputAction.CallbackContext context)
     {
-        if (GroundCheck()) body.linearVelocityY = player.data.JUMP_FORCE;
+        if (GroundCheck())
+        {
+            body.linearVelocityY = player.data.JUMP_FORCE;
+            jumpSound.pitch = Random.Range(0.9f, 1.1f); // Randomize pitch slightly
+            jumpSound.Play();
+        }
     }
 
     RaycastHit2D GroundCheck()

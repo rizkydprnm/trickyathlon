@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Audio;
-
 using UnityEngine.UI;
 
 public class VolumeConfig : MonoBehaviour
@@ -13,7 +12,8 @@ public class VolumeConfig : MonoBehaviour
 
     public void ChangeMasterVolume(float volume)
     {
-        if (volume > 0f) mixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        float normalizedVolume = volume / 10f; // Convert 0-10 to 0-1
+        if (normalizedVolume > 0f) mixer.SetFloat("MasterVolume", Mathf.Log10(normalizedVolume) * 20f);
         else mixer.SetFloat("MasterVolume", -80f); // Mute if volume is 0
 
         PlayerPrefs.SetFloat("MasterVolume", volume);
@@ -22,7 +22,8 @@ public class VolumeConfig : MonoBehaviour
 
     public void ChangeMusicVolume(float volume)
     {
-        if (volume > 0f) mixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        float normalizedVolume = volume / 10f; // Convert 0-10 to 0-1
+        if (normalizedVolume > 0f) mixer.SetFloat("MusicVolume", Mathf.Log10(normalizedVolume) * 20f);
         else mixer.SetFloat("MusicVolume", -80f); // Mute if volume is 0
 
         PlayerPrefs.SetFloat("MusicVolume", volume);
@@ -31,13 +32,14 @@ public class VolumeConfig : MonoBehaviour
 
     public void ChangeEffectsVolume(float volume)
     {
-        if (volume > 0f) mixer.SetFloat("EffectsVolume", Mathf.Log10(volume) * 20);
+        float normalizedVolume = volume / 10f; // Convert 0-10 to 0-1
+        if (normalizedVolume > 0f) mixer.SetFloat("EffectsVolume", Mathf.Log10(normalizedVolume) * 20f);
         else mixer.SetFloat("EffectsVolume", -80f); // Mute if volume is 0
 
         PlayerPrefs.SetFloat("EffectsVolume", volume);
         PlayerPrefs.Save();
     }
-    
+
     void Awake()
     {
         float masterVolume, musicVolume, effectsVolume;
@@ -50,8 +52,8 @@ public class VolumeConfig : MonoBehaviour
         }
         else
         {
-            ChangeMasterVolume(0.5f);
-            masterSlider.value = 0.5f;
+            ChangeMasterVolume(5f); // Default to middle value (5 out of 10)
+            masterSlider.value = 5f;
         }
 
         if (PlayerPrefs.HasKey("MusicVolume"))
@@ -62,8 +64,8 @@ public class VolumeConfig : MonoBehaviour
         }
         else
         {
-            ChangeMusicVolume(0.5f);
-            musicSlider.value = 0.5f;
+            ChangeMusicVolume(5f); // Default to middle value (5 out of 10)
+            musicSlider.value = 5f;
         }
 
         if (PlayerPrefs.HasKey("EffectsVolume"))
@@ -74,8 +76,8 @@ public class VolumeConfig : MonoBehaviour
         }
         else
         {
-            ChangeEffectsVolume(0.5f);
-            effectsSlider.value = 0.5f;
+            ChangeEffectsVolume(5f); // Default to middle value (5 out of 10)
+            effectsSlider.value = 5f;
         }
     }
 }
