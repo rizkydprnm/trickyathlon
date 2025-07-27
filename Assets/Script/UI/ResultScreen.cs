@@ -11,7 +11,9 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI seedText;
     [SerializeField] TextMeshProUGUI speedText;
     [SerializeField] TextMeshProUGUI timeText;
+
     [SerializeField] AudioSource fallSound;
+    [SerializeField] AudioSource music;
 
     [SerializeField] GameObject[] uiElements;
 
@@ -31,6 +33,7 @@ public class ResultScreen : MonoBehaviour
             element.SetActive(false);
         }
         Tween.UIAnchoredPositionX(GetComponent<RectTransform>(), startValue: 200, endValue: 0, duration: 0.125f, Ease.InCirc);
+        Tween.AudioPitch(music, startValue: 1f, endValue: 0f, duration: 1f).OnComplete(() => music.Stop());
         Player.OnPlayerDeath.RemoveListener(OnPlayerDeath);
 
         GeneratorData data = Generator.GetData();

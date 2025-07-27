@@ -13,6 +13,10 @@ public class GroundMovement : MonoBehaviour
     float speedInput;
     bool canBrake = false;
 
+    // Coyote time variables
+    private float coyoteTimeCounter;
+    private const float coyoteTime = 1f / 6f;
+
     Player player;
     Rigidbody2D body;
 
@@ -50,7 +54,16 @@ public class GroundMovement : MonoBehaviour
     void FixedUpdate()
     {
         animator.SetFloat("Run", Mathf.Abs(body.linearVelocityX / (player.data.MAX_SPEED + player.MaxSpeedModifier)));
-        GroundCheck();
+
+        // Update coyote time counter
+        if (GroundCheck())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.fixedDeltaTime;
+        }
 
         if (speedInput < 0 && canBrake)
         {
@@ -98,11 +111,12 @@ public class GroundMovement : MonoBehaviour
 
     void OnJump(InputAction.CallbackContext context)
     {
-        if (GroundCheck())
+        if (coyoteTimeCounter > 0f)
         {
             body.linearVelocityY = player.data.JUMP_FORCE;
             jumpSound.pitch = Random.Range(0.9f, 1.1f); // Randomize pitch slightly
             jumpSound.Play();
+            coyoteTimeCounter = 0f; // Reset coyote time after jumping
         }
     }
 
