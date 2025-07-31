@@ -33,7 +33,7 @@ public class ResultScreen : MonoBehaviour
             element.SetActive(false);
         }
         Tween.UIAnchoredPositionX(GetComponent<RectTransform>(), startValue: 200, endValue: 0, duration: 0.125f, Ease.InCirc);
-        Tween.AudioPitch(music, startValue: 1f, endValue: 0f, duration: 1f).OnComplete(() => music.Stop());
+        Tween.AudioPitch(music, startValue: 1f, endValue: 0f, duration: 2f).OnComplete(() => music.Stop());
         Player.OnPlayerDeath.RemoveListener(OnPlayerDeath);
 
         GeneratorData data = Generator.GetData();

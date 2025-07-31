@@ -15,6 +15,7 @@ public class PlayGame : MonoBehaviour
 
     int seed;
     [SerializeField] TextMeshProUGUI seedText;
+    [SerializeField] AudioSource errorSound;
 
     public void Execute()
     {
@@ -26,7 +27,6 @@ public class PlayGame : MonoBehaviour
                 break;
 
             case Mode.SetSeed:
-                if (seedText.text.Length == 0) return;
                 string trimmedText = seedText.text.Trim();
 
                 // Filter out non-hex characters
@@ -34,6 +34,7 @@ public class PlayGame : MonoBehaviour
 
                 if (string.IsNullOrEmpty(hexString))
                 {
+                    errorSound.Play();
                     Debug.LogError("No valid hexadecimal characters in input");
                     return;
                 }

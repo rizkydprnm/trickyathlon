@@ -1,3 +1,4 @@
+using System.Data.Common;
 using Unity.Cinemachine;
 using UnityEditor;
 using UnityEngine;
@@ -29,7 +30,7 @@ public class GroundMovement : MonoBehaviour
         jumpAction = InputSystem.actions["Player/Jump"];
 
         speedAction.performed += OnSpeed;
-        jumpAction.performed += OnJump;
+        jumpAction.performed += _ => { if (coyoteTimeCounter > 0f) OnJump(_); };
 
         speedAction.canceled += OnSpeed;
 
@@ -56,14 +57,8 @@ public class GroundMovement : MonoBehaviour
         animator.SetFloat("Run", Mathf.Abs(body.linearVelocityX / (player.data.MAX_SPEED + player.MaxSpeedModifier)));
 
         // Update coyote time counter
-        if (GroundCheck())
-        {
-            coyoteTimeCounter = coyoteTime;
-        }
-        else
-        {
-            coyoteTimeCounter -= Time.fixedDeltaTime;
-        }
+        if (GroundCheck()) coyoteTimeCounter = coyoteTime;
+        else coyoteTimeCounter -= Time.fixedDeltaTime;
 
         if (speedInput < 0 && canBrake)
         {
@@ -111,26 +106,14 @@ public class GroundMovement : MonoBehaviour
 
     void OnJump(InputAction.CallbackContext context)
     {
-        if (coyoteTimeCounter > 0f)
-        {
-            body.linearVelocityY = player.data.JUMP_FORCE;
-            jumpSound.pitch = Random.Range(0.9f, 1.1f); // Randomize pitch slightly
-            jumpSound.Play();
-            coyoteTimeCounter = 0f; // Reset coyote time after jumping
-        }
+        coyoteTimeCounter = 0f; // Reset coyote time after jumping
+        body.linearVelocityY = player.data.JUMP_FORCE;
+        jumpSound.Play();
     }
 
     RaycastHit2D GroundCheck()
     {
-        return Physics2D.CapsuleCast(
-            transform.position,
-            new Vector2(0.75f, 1f),
-            CapsuleDirection2D.Vertical,
-            0,
-            Vector2.down,
-            0.05f,
-            LayerMask.GetMask("Ground")
-        );
+        return Physics2D.BoxCast(transform.position, new Vector2(0.75f, 1f), 0, Vector2.down, 0.025f, LayerMask.GetMask("Ground"));
     }
 
     void OutOfBoundsCheck()
