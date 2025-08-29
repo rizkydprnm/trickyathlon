@@ -422,6 +422,8 @@ MonoBehaviour:
 
     RIGHT ARROW
 
+    or Touch Here
+
     to Boost'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b164722c7cf819a45902188304616b43, type: 2}
@@ -1796,7 +1798,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3354543520592047667, guid: 4781730e03012bc4d903ac0049750922, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6fc5b7e335977ee40bc2fcb9816a8a8f, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6fc5b7e335977ee40bc2fcb9816a8a8f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1893,7 +1895,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2910101579516900797, guid: 4781730e03012bc4d903ac0049750922, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5f84925c67da42b468d875fa626ae1d8, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5f84925c67da42b468d875fa626ae1d8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3526,6 +3528,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press SPACEBAR
 
+    or Touch Here
+
     to Jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b164722c7cf819a45902188304616b43, type: 2}
@@ -3881,6 +3885,8 @@ MonoBehaviour:
   m_text: 'Press
 
     LEFT ARROW
+
+    or Touch Here
 
     to Brake'
   m_isRightToLeft: 0
@@ -5409,7 +5415,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3354543520592047667, guid: 4781730e03012bc4d903ac0049750922, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1af10806cd122644b85cb97c33da0bbc, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1af10806cd122644b85cb97c33da0bbc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
